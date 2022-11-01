@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+
+	font-size: 62.5%;
+
+	--very-dark-magenta: hsl(300, 43%, 22%);
+	--soft-pink: hsl(333, 80%, 67%);
+	--dark-grayish-magenta: hsl(303, 10%, 53%);
+	--light-grayish-magenta: hsl(300, 24%, 96%);
+	--white: hsl(0, 0%, 100%);
+
+	--ff-league-spartan: 'League Spartan', sans-serif;
+
+}
+
+body {
+	font-family: var(--ff-league-spartan);
+	font-size: 1.5rem;
+
+	display: grid;
+	align-items: center;
+	
+	/*grid-template-areas: 
+		"header"
+		"main_paragraph"
+		"review_container"
+		"review_container"
+		"review_container"
+		"opinion_card"
+		"opinion_card"
+		"opinion_card"
+		"attribution";*/
+
+	grid-template-rows: repeat(9, 1fr);
+
+	padding: 4.0rem 3.0rem;
+}
+
+header {
+	grid-row: 1;
+}
+
+h1 {
+	font-weight: 700;
+	color: var(--very-dark-magenta);
+}
+
+.main_paragraph {
+	grid-row: 2;
+
+	color: var(--dark-grayish-magenta);
+	font-weight: 400;
+}
+
+.review_container {
+	background-color: var(--light-grayish-magenta);
+}
+
+.opinion_card {
+	display: flex;
+	flex-direction: column;
+
+	padding: 3.5rem;
+
+	background-color: var(--very-dark-magenta);
+
+	border-radius: 1.0rem;
+}
+
+.opinion_card_header {
+	display: flex;
+	gap: 2.5rem;
+	align-items: center;
+
+	padding-bottom: 2.0rem;
+}
+
+img {
+	width: 3.5rem;
+	border-radius: 4.5rem;
+	object-position: center;
+	object-fit: cover;
+}
+
+.rating {
+	font-weight: 700;
+}
+
+.rating::before {
+	content: '';
+	width: 10.0rem;
+	height: 1.6rem;
+	background-image: url(images/icon-star.svg);
+	background-repeat: space;
+	margin-right: 3.0rem;
+}
