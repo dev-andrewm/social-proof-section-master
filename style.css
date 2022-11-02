@@ -65,11 +65,15 @@ h1 {
 	display: flex;
 	flex-direction: column;
 
-	padding: 3.5rem;
+	padding: 3.7rem;
 
 	background-color: var(--very-dark-magenta);
 
 	border-radius: 1.0rem;
+}
+
+.opinion_card + .opinion_card {
+	margin-top: 1.2rem;
 }
 
 .opinion_card_header {
@@ -78,6 +82,22 @@ h1 {
 	align-items: center;
 
 	padding-bottom: 2.0rem;
+}
+
+h4 {
+	font-weight: 500;
+	color: var(--light-grayish-magenta);
+	margin-bottom: 5px;
+}
+
+span {
+	color: var(--soft-pink);
+}
+
+.opinion_card_body p {
+	font-weight: 400;
+	color: var(--light-grayish-magenta);
+	line-height: 2.0rem;
 }
 
 img {
@@ -95,7 +115,7 @@ img {
 	content: '';
 	width: 10.0rem;
 	height: 1.6rem;
-	background-image: url(images/icon-star.svg);
+	background-image: url(./images/icon-star.svg);
 	background-repeat: space;
 	margin-right: 3.0rem;
 }
