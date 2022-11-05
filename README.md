@@ -27,7 +27,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: (https://github.com/dev-andrewm/social-proof-section-master)
-- Live Site URL: https://dev-andrewm.github.io/social-proof-section-master/index.html
+- Live Site URL: https://dev-andrewm.github.io/social-proof-section-master/index
 
 ## My process
 
