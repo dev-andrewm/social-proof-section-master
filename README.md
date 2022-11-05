@@ -26,8 +26,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: (https://github.com/dev-andrewm/stats-preview-card-component)
-- Live Site URL: https://dev-andrewm.github.io/index.html
+- Solution URL: (https://github.com/dev-andrewm/social-proof-section-master)
+- Live Site URL: https://dev-andrewm.github.io/social-proof-section-master.html
 
 ## My process
 
