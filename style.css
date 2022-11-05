@@ -21,6 +21,9 @@
 body {
 	font-family: var(--ff-league-spartan);
 	font-size: 1.5rem;
+}
+
+.page {
 
 	display: flex;
 	flex-direction: column;
@@ -165,11 +168,12 @@ img {
 
 @media (min-width: 900px) {
 
-	body {
+	.page {
 		display: grid;
+		width: 95vw;
+		margin: 4rem auto;
 		grid-template-areas: 
 		"main_title				reviews_container"			
-		"main_title 			reviews_container"
 		"main_paragraph			reviews_container"
 		"opinions_container		opinions_container"
 		"attribution			attribution";
@@ -188,22 +192,28 @@ img {
 	.reviews_container {
 		max-width: 60vw;
 		grid-area: reviews_container;
-		margin: 0 auto;
+		margin-left: auto;
+	}
+
+	.rating::before {
+		margin: 0 3.0rem 0 0;
+
 	}
 
 	.rating {
 		flex-direction: row;
 		align-items: center;
-		justify-content: space-around;
+		/*justify-content: space-around;*/
 	}
 
 	.main_paragraph {
+		max-width: 25vw;
 		grid-area: main_paragraph;
 	}
 
 	.opinions_container {
-		width: 100vw;
-		height: 25.0rem;
+		width: 95vw;
+		height: 30.0rem;
 		grid-area: opinions_container;
 		display: flex;
 		justify-content: space-between;
@@ -235,7 +245,6 @@ img {
 		margin-top: 0;
 		padding-top: 0;
 		height: 5.0rem;
-		align-self: ;
 	}
 
 	.rating:nth-child(2) {
