@@ -1,8 +1,6 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+/*@import "media_queries.css";*/
+
+/* VARIABLES */
 
 :root {
 
@@ -18,31 +16,43 @@
 
 }
 
+/*RESETS*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*LAYOUT MOBILE-FIRST*/
+
 body {
 	font-family: var(--ff-league-spartan);
 	font-size: 1.5rem;
-	min-height: 100vh;
-	display: grid;
-	place-content: center;
+
+	background-image: url(images/bg-pattern-top-mobile.svg);
+	background-position: top left;
+	background-repeat: no-repeat;
+
+	margin: 8.0rem 3.2rem;
 }
 
-.page {
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	
-	margin: 5.0rem 3.0rem;
+main {
+	max-width: 144.0rem;
 }
 
 .introduction {
 	display: flex;
-	justify-content: center;
+  	flex-direction: column;
+
+  	margin: 0 auto 2.0rem auto;
+  	text-align: center;
 }
 
-header {
+.main_title {
+	max-width: 85%;
 	text-align: center;
-	width: 85%;
+	margin: 0 auto;
 }
 
 h1 {
@@ -62,35 +72,29 @@ h1 {
 }
 
 .reviews_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	gap: 2.0rem;
+}
 
+.review_container {
+	background-color: var(--light-grayish-magenta);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 
-	font-weight: 700;
-
-	margin: 10px 0;
-}
-
-.rating {
-	background-color: var(--light-grayish-magenta);
-	text-align: center;
-
-	font-weight: 700;
-
-	width: 83vw;
-	height: 8.0rem;
+	min-height: 5.0rem;
 
 	border-radius: 0.8rem;
 
-	margin-top: 2.0rem;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	/*margin-top: 2.0rem;*/
 }
 
 .rating::before {
+	display: flex;
+	flex-direction: column;
 	margin: 0 auto 1.0rem auto;
 
 	width: 10.0rem;
@@ -102,13 +106,19 @@ h1 {
 	background-repeat: space;
 }
 
+.rating {
+	font-weight: 700;
+}
+
 .opinions_container {
 	margin-top: 4.0rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
 }
 
 .opinion_container {
 
-	width: 83vw;
 	display: flex;
 	flex-direction: column;
 
@@ -119,10 +129,6 @@ h1 {
 	border-radius: 1.0rem;
 }
 
-.opinion_container + .opinion_container {
-	margin-top: 1.2rem;
-}
-
 .opinion_container_header {
 	display: flex;
 	gap: 2.5rem;
@@ -131,7 +137,7 @@ h1 {
 	padding-bottom: 2.0rem;
 }
 
-h4 {
+h2 {
 	font-weight: 500;
 	color: var(--light-grayish-magenta);
 	margin-bottom: 5px;
@@ -169,59 +175,85 @@ img {
 	color: hsl(228, 100%, 44%);
 }
 
-@media (min-width: 900px) {
+/*LAYOUT DESKTOP*/
 
-	.page {
+@media (min-width: 750px) {
+
+	body {
+		margin: 0;
 		display: grid;
-		width: 95vw;
-		margin: 4rem auto;
-		grid-template-areas: 
-		"main_title				reviews_container"			
-		"main_paragraph			reviews_container"
-		"opinions_container		opinions_container"
-		"attribution			attribution";
+		place-content: center;
+		min-height: 100vh;
+
+		background-image: 	url(images/bg-pattern-top-desktop.svg),
+    						url(images/bg-pattern-bottom-desktop.svg);
+  		background-repeat: no-repeat, no-repeat;
+  		background-position: top left, bottom right;
+
 	}
 
-	header {
+	main {
+		display: grid;
+
+		padding: 0 2vw;
+
+		grid-template-areas: 
+		"introduction			reviews_container"
+		"opinions_container		opinions_container";
+
+		grid-template-columns: minmax(100px, 1fr) 1fr;
+	}
+
+	.introduction {
+		grid-area: introduction;
+		margin: 0 auto 0 0;
 		text-align: left;
-		width: 100%;
 	}
 
 	.main_title {
-		max-width: 20.0rem;
-		grid-area: main_title;
-	}
-
-	.reviews_container {
-		max-width: 60vw;
-		grid-area: reviews_container;
-		margin-left: auto;
-	}
-
-	.rating::before {
-		margin: 0 3.0rem 0 0;
-
-	}
-
-	.rating {
-		flex-direction: row;
-		align-items: center;
-		/*justify-content: space-around;*/
+		max-width: 25.0rem;
+		text-align: left;
+		margin: 0;
 	}
 
 	.main_paragraph {
-		max-width: 25vw;
-		grid-area: main_paragraph;
+		max-width: 37.0rem;
+	}
+
+	.reviews_container {
+		max-width: 60.0rem;
+		grid-area: reviews_container;
+		display: flex;
+		flex-direction: column;
+		/*margin-left: auto;*/
+	}
+
+	.review_container {
+		width: 80%;
+	}
+
+	.review_container:first-of-type {
+		align-self: flex-start;
+	}
+
+	.review_container:nth-child(2) {
+		align-self: center;
+	}
+
+	.review_container:last-of-type {
+		align-self: flex-end;
 	}
 
 	.opinions_container {
-		width: 95vw;
-		height: 30.0rem;
+		max-width: 144.0rem;
 		grid-area: opinions_container;
-		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
-		gap: 1.5rem;
+	}
+
+	.opinion_container {
+		max-width: 32%;
+		max-height: 90%;
 	}
 
 	.opinion_container:first-of-type {
@@ -236,32 +268,15 @@ img {
 		align-self: flex-end;
 	}
 
-	.opinion_container + .opinion_container {
-		margin-top: 0;
-	}
-
-	.rating {
-		max-width: 80%;
-	}
-
-	.rating:first-of-type {
-		margin-top: 0;
-		padding-top: 0;
-		height: 5.0rem;
-	}
-
-	.rating:nth-child(2) {
-		height: 5.0rem;
-		align-self: center;
-	}
-
-	.rating:last-of-type {
-		height: 5.0rem;
-		align-self: end;
-	}
-
 	.attribution {
 		grid-area: attribution;
 	}
 
+}
+
+@media (min-width: 1100px) {
+
+	main {
+		padding: 0 15vw;
+	}
 }
